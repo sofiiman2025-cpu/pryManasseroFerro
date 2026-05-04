@@ -108,7 +108,7 @@
             // 
             // grpBoletos
             // 
-            this.grpBoletos.BackColor = System.Drawing.Color.NavajoWhite;
+            this.grpBoletos.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.grpBoletos.Controls.Add(this.txtDistancia);
             this.grpBoletos.Controls.Add(this.lblDistancia);
             this.grpBoletos.Controls.Add(this.numDias);
@@ -123,16 +123,17 @@
             // 
             // pMostrar
             // 
-            this.pMostrar.BackColor = System.Drawing.Color.NavajoWhite;
+            this.pMostrar.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pMostrar.Controls.Add(this.dataGridView1);
             this.pMostrar.Location = new System.Drawing.Point(252, 12);
             this.pMostrar.Name = "pMostrar";
-            this.pMostrar.Size = new System.Drawing.Size(348, 143);
+            this.pMostrar.Size = new System.Drawing.Size(345, 143);
             this.pMostrar.TabIndex = 11;
+            this.pMostrar.Visible = false;
             // 
             // dataGridView1
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.NavajoWhite;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.distancia,
@@ -140,7 +141,7 @@
             this.precio});
             this.dataGridView1.Location = new System.Drawing.Point(3, 10);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(331, 123);
+            this.dataGridView1.Size = new System.Drawing.Size(339, 123);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -163,8 +164,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Tan;
-            this.ClientSize = new System.Drawing.Size(612, 172);
+            this.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.ClientSize = new System.Drawing.Size(609, 169);
             this.Controls.Add(this.pMostrar);
             this.Controls.Add(this.grpBoletos);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
