@@ -31,6 +31,13 @@ namespace pryManasseroFerro
             double total;
             double totalDistancia;
 
+            if (txtNombre.Text == "")
+            {
+                MessageBox.Show("Ingrese a donde desea ir)", "Gestión de datos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
+
+
             if (txtDistancia.Text == "")
                 
             {
