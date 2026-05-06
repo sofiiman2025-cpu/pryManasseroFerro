@@ -35,15 +35,16 @@
             this.btnCalcular = new System.Windows.Forms.Button();
             this.numDias = new System.Windows.Forms.NumericUpDown();
             this.grpBoletos = new System.Windows.Forms.GroupBox();
+            this.lblPrecio = new System.Windows.Forms.Label();
             this.pMostrar = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.distancia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dias = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dias = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.distancia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvDatos = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.numDias)).BeginInit();
             this.grpBoletos.SuspendLayout();
             this.pMostrar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.SuspendLayout();
             // 
             // lblDistancia
@@ -76,7 +77,7 @@
             // 
             // btnCalcular
             // 
-            this.btnCalcular.Location = new System.Drawing.Point(152, 110);
+            this.btnCalcular.Location = new System.Drawing.Point(153, 136);
             this.btnCalcular.Name = "btnCalcular";
             this.btnCalcular.Size = new System.Drawing.Size(75, 23);
             this.btnCalcular.TabIndex = 6;
@@ -109,6 +110,7 @@
             // grpBoletos
             // 
             this.grpBoletos.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.grpBoletos.Controls.Add(this.lblPrecio);
             this.grpBoletos.Controls.Add(this.txtDistancia);
             this.grpBoletos.Controls.Add(this.lblDistancia);
             this.grpBoletos.Controls.Add(this.numDias);
@@ -116,67 +118,78 @@
             this.grpBoletos.Controls.Add(this.lblDiasEstadia);
             this.grpBoletos.Location = new System.Drawing.Point(12, 12);
             this.grpBoletos.Name = "grpBoletos";
-            this.grpBoletos.Size = new System.Drawing.Size(234, 143);
+            this.grpBoletos.Size = new System.Drawing.Size(234, 165);
             this.grpBoletos.TabIndex = 10;
             this.grpBoletos.TabStop = false;
             this.grpBoletos.Text = "Boletos";
             // 
+            // lblPrecio
+            // 
+            this.lblPrecio.AutoSize = true;
+            this.lblPrecio.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecio.Location = new System.Drawing.Point(3, 100);
+            this.lblPrecio.Name = "lblPrecio";
+            this.lblPrecio.Size = new System.Drawing.Size(230, 16);
+            this.lblPrecio.TabIndex = 1;
+            this.lblPrecio.Text = "¡El precio por km es de un total de 5 pesos!";
+            // 
             // pMostrar
             // 
             this.pMostrar.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pMostrar.Controls.Add(this.dataGridView1);
+            this.pMostrar.Controls.Add(this.dgvDatos);
             this.pMostrar.Location = new System.Drawing.Point(252, 12);
             this.pMostrar.Name = "pMostrar";
-            this.pMostrar.Size = new System.Drawing.Size(345, 143);
+            this.pMostrar.Size = new System.Drawing.Size(366, 165);
             this.pMostrar.TabIndex = 11;
             this.pMostrar.Visible = false;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.distancia,
-            this.dias,
-            this.precio});
-            this.dataGridView1.Location = new System.Drawing.Point(3, 10);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(339, 123);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // distancia
-            // 
-            this.distancia.HeaderText = "Distancia";
-            this.distancia.Name = "distancia";
-            // 
-            // dias
-            // 
-            this.dias.HeaderText = "Días de estadia ";
-            this.dias.Name = "dias";
             // 
             // precio
             // 
             this.precio.HeaderText = "Precio";
             this.precio.Name = "precio";
             // 
+            // dias
+            // 
+            this.dias.HeaderText = "Días de estadia ";
+            this.dias.Name = "dias";
+            // 
+            // distancia
+            // 
+            this.distancia.HeaderText = "Distancia";
+            this.distancia.Name = "distancia";
+            // 
+            // dgvDatos
+            // 
+            this.dgvDatos.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.dgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDatos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.distancia,
+            this.dias,
+            this.precio});
+            this.dgvDatos.Location = new System.Drawing.Point(6, 10);
+            this.dgvDatos.Name = "dgvDatos";
+            this.dgvDatos.Size = new System.Drawing.Size(350, 149);
+            this.dgvDatos.TabIndex = 0;
+            this.dgvDatos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
             // frmOrganizacionferro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(609, 169);
+            this.ClientSize = new System.Drawing.Size(620, 189);
             this.Controls.Add(this.pMostrar);
             this.Controls.Add(this.grpBoletos);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmOrganizacionferro";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Organización Ferro";
             this.Load += new System.EventHandler(this.frmOrganizacionferro_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numDias)).EndInit();
             this.grpBoletos.ResumeLayout(false);
             this.grpBoletos.PerformLayout();
             this.pMostrar.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -188,8 +201,9 @@
         private System.Windows.Forms.Button btnCalcular;
         private System.Windows.Forms.NumericUpDown numDias;
         private System.Windows.Forms.GroupBox grpBoletos;
+        private System.Windows.Forms.Label lblPrecio;
         private System.Windows.Forms.Panel pMostrar;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvDatos;
         private System.Windows.Forms.DataGridViewTextBoxColumn distancia;
         private System.Windows.Forms.DataGridViewTextBoxColumn dias;
         private System.Windows.Forms.DataGridViewTextBoxColumn precio;

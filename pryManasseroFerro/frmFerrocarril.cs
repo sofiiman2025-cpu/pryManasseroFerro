@@ -24,6 +24,20 @@ namespace pryManasseroFerro
 
         private void btnCalcular_Click(object sender, EventArgs e)
         {
+            //Declaración de variables
+            string destino;
+            int destancia = 0;
+            int dias = 0;
+            double preciokm = 5;
+            double total;
+            double descuento = 0.5;
+
+            if (txtDistancia.Text == "")
+                
+            {
+                MessageBox.Show("Ingrese la distancia a recorrer", "Gestión de datos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtDistancia.Focus();
+            }
            
         }
 
