@@ -25,7 +25,7 @@ namespace pryManasseroFerro
         private void btnCalcular_Click(object sender, EventArgs e)
         {
             //Declaración de variables
-            double distancia;
+            double distancia= Convert.ToDouble(txtDistancia.Text) ;
             int dias= (int)numDias.Value;
             double precioKm = 5;
             double total;
@@ -36,10 +36,6 @@ namespace pryManasseroFerro
             {
                 MessageBox.Show("Ingrese la distancia a recorrer", "Gestión de datos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtDistancia.Focus();
-            }
-            if (!double.TryParse(txtDistancia.Text, out distancia));
-            {
-                MessageBox.Show("Ingrese una distancia valida", "Gestión de datos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
@@ -59,6 +55,9 @@ namespace pryManasseroFerro
             }
             //Mostrar resultado
             MessageBox.Show("El precio total del boleto es: $" + total);
+            pMostrar.Visible = true;
+            //Agregar a la datagridview
+            dgvDatos.Rows.Add(distancia, dias, total);
         }
 
         private void txtDistancia_TextChanged(object sender, EventArgs e)

@@ -35,12 +35,13 @@
             this.btnCalcular = new System.Windows.Forms.Button();
             this.numDias = new System.Windows.Forms.NumericUpDown();
             this.grpBoletos = new System.Windows.Forms.GroupBox();
-            this.lblPrecio = new System.Windows.Forms.Label();
             this.pMostrar = new System.Windows.Forms.Panel();
             this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dias = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.distancia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvDatos = new System.Windows.Forms.DataGridView();
+            this.lblNombreDestino = new System.Windows.Forms.Label();
+            this.txtNombre = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numDias)).BeginInit();
             this.grpBoletos.SuspendLayout();
             this.pMostrar.SuspendLayout();
@@ -51,7 +52,7 @@
             // 
             this.lblDistancia.AutoSize = true;
             this.lblDistancia.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDistancia.Location = new System.Drawing.Point(3, 29);
+            this.lblDistancia.Location = new System.Drawing.Point(6, 71);
             this.lblDistancia.Name = "lblDistancia";
             this.lblDistancia.Size = new System.Drawing.Size(93, 17);
             this.lblDistancia.TabIndex = 1;
@@ -61,7 +62,7 @@
             // 
             this.lblDiasEstadia.AutoSize = true;
             this.lblDiasEstadia.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDiasEstadia.Location = new System.Drawing.Point(3, 66);
+            this.lblDiasEstadia.Location = new System.Drawing.Point(6, 105);
             this.lblDiasEstadia.Name = "lblDiasEstadia";
             this.lblDiasEstadia.Size = new System.Drawing.Size(101, 17);
             this.lblDiasEstadia.TabIndex = 2;
@@ -69,7 +70,7 @@
             // 
             // txtDistancia
             // 
-            this.txtDistancia.Location = new System.Drawing.Point(107, 29);
+            this.txtDistancia.Location = new System.Drawing.Point(139, 68);
             this.txtDistancia.Name = "txtDistancia";
             this.txtDistancia.Size = new System.Drawing.Size(121, 20);
             this.txtDistancia.TabIndex = 5;
@@ -77,7 +78,7 @@
             // 
             // btnCalcular
             // 
-            this.btnCalcular.Location = new System.Drawing.Point(153, 136);
+            this.btnCalcular.Location = new System.Drawing.Point(184, 136);
             this.btnCalcular.Name = "btnCalcular";
             this.btnCalcular.Size = new System.Drawing.Size(75, 23);
             this.btnCalcular.TabIndex = 6;
@@ -87,7 +88,7 @@
             // 
             // numDias
             // 
-            this.numDias.Location = new System.Drawing.Point(107, 66);
+            this.numDias.Location = new System.Drawing.Point(139, 102);
             this.numDias.Maximum = new decimal(new int[] {
             30,
             0,
@@ -110,7 +111,8 @@
             // grpBoletos
             // 
             this.grpBoletos.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.grpBoletos.Controls.Add(this.lblPrecio);
+            this.grpBoletos.Controls.Add(this.txtNombre);
+            this.grpBoletos.Controls.Add(this.lblNombreDestino);
             this.grpBoletos.Controls.Add(this.txtDistancia);
             this.grpBoletos.Controls.Add(this.lblDistancia);
             this.grpBoletos.Controls.Add(this.numDias);
@@ -118,28 +120,18 @@
             this.grpBoletos.Controls.Add(this.lblDiasEstadia);
             this.grpBoletos.Location = new System.Drawing.Point(12, 12);
             this.grpBoletos.Name = "grpBoletos";
-            this.grpBoletos.Size = new System.Drawing.Size(234, 165);
+            this.grpBoletos.Size = new System.Drawing.Size(290, 173);
             this.grpBoletos.TabIndex = 10;
             this.grpBoletos.TabStop = false;
             this.grpBoletos.Text = "Boletos";
-            // 
-            // lblPrecio
-            // 
-            this.lblPrecio.AutoSize = true;
-            this.lblPrecio.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrecio.Location = new System.Drawing.Point(3, 100);
-            this.lblPrecio.Name = "lblPrecio";
-            this.lblPrecio.Size = new System.Drawing.Size(230, 16);
-            this.lblPrecio.TabIndex = 1;
-            this.lblPrecio.Text = "¡El precio por km es de un total de 5 pesos!";
             // 
             // pMostrar
             // 
             this.pMostrar.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pMostrar.Controls.Add(this.dgvDatos);
-            this.pMostrar.Location = new System.Drawing.Point(252, 12);
+            this.pMostrar.Location = new System.Drawing.Point(308, 12);
             this.pMostrar.Name = "pMostrar";
-            this.pMostrar.Size = new System.Drawing.Size(366, 165);
+            this.pMostrar.Size = new System.Drawing.Size(366, 173);
             this.pMostrar.TabIndex = 11;
             this.pMostrar.Visible = false;
             // 
@@ -168,16 +160,33 @@
             this.precio});
             this.dgvDatos.Location = new System.Drawing.Point(6, 10);
             this.dgvDatos.Name = "dgvDatos";
-            this.dgvDatos.Size = new System.Drawing.Size(350, 149);
+            this.dgvDatos.Size = new System.Drawing.Size(350, 155);
             this.dgvDatos.TabIndex = 0;
             this.dgvDatos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // lblNombreDestino
+            // 
+            this.lblNombreDestino.AutoSize = true;
+            this.lblNombreDestino.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombreDestino.Location = new System.Drawing.Point(6, 33);
+            this.lblNombreDestino.Name = "lblNombreDestino";
+            this.lblNombreDestino.Size = new System.Drawing.Size(126, 17);
+            this.lblNombreDestino.TabIndex = 9;
+            this.lblNombreDestino.Text = "Nombre del destino\r\n";
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.Location = new System.Drawing.Point(139, 30);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(121, 20);
+            this.txtNombre.TabIndex = 10;
             // 
             // frmOrganizacionferro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(620, 189);
+            this.ClientSize = new System.Drawing.Size(686, 189);
             this.Controls.Add(this.pMostrar);
             this.Controls.Add(this.grpBoletos);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -201,12 +210,13 @@
         private System.Windows.Forms.Button btnCalcular;
         private System.Windows.Forms.NumericUpDown numDias;
         private System.Windows.Forms.GroupBox grpBoletos;
-        private System.Windows.Forms.Label lblPrecio;
         private System.Windows.Forms.Panel pMostrar;
         private System.Windows.Forms.DataGridView dgvDatos;
         private System.Windows.Forms.DataGridViewTextBoxColumn distancia;
         private System.Windows.Forms.DataGridViewTextBoxColumn dias;
         private System.Windows.Forms.DataGridViewTextBoxColumn precio;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.Label lblNombreDestino;
     }
 }
 
