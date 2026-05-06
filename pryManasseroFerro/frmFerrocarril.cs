@@ -25,12 +25,11 @@ namespace pryManasseroFerro
         private void btnCalcular_Click(object sender, EventArgs e)
         {
             //Declaración de variables
-            string destino;
-            int destancia = 0;
-            int dias = 0;
-            double preciokm = 5;
+            double distancia;
+            int dias= (int)numDias.Value;
+            double precioKm = 5;
             double total;
-            double descuento = 0.5;
+            double totalDistancia;
 
             if (txtDistancia.Text == "")
                 
@@ -38,7 +37,28 @@ namespace pryManasseroFerro
                 MessageBox.Show("Ingrese la distancia a recorrer", "Gestión de datos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtDistancia.Focus();
             }
-           
+            if (!double.TryParse(txtDistancia.Text, out distancia));
+            {
+                MessageBox.Show("Ingrese una distancia valida", "Gestión de datos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+
+
+        //calcular ida y vuelta 
+        totalDistancia = distancia * 2;
+
+            //Calcular precio sin descuento
+            total = totalDistancia * precioKm;
+
+            //Aplicar descuento si corresponde 
+            if (distancia >= 100 && distancia >= 7)
+
+            {
+                total = total * 0.5; // Descuento del 5%
+            }
+            //Mostrar resultado
+            MessageBox.Show("El precio total del boleto es: $" + total);
         }
 
         private void txtDistancia_TextChanged(object sender, EventArgs e)
