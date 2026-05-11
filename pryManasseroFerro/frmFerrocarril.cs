@@ -24,46 +24,48 @@ namespace pryManasseroFerro
 
         private void btnCalcular_Click(object sender, EventArgs e)
         {
-            //Declaración de variables
-            double distancia= Convert.ToDouble(txtDistancia.Text) ;
-            int dias= (int)numDias.Value;
-            double precioKm = 5;
-            double total;
-            double totalDistancia;
-
-            if (txtNombre.Text == "")
+            // Validaciones de entrada
+            if (string.IsNullOrWhiteSpace(txtNombre.Text))
             {
-                MessageBox.Show("Ingrese a donde desea ir)", "Gestión de datos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ingrese a donde desea ir", "Gestión de datos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtNombre.Focus();
+                return;
             }
 
-
-
-            if (txtDistancia.Text == "")
-                
+            if (string.IsNullOrWhiteSpace(txtDistancia.Text))
             {
                 MessageBox.Show("Ingrese la distancia a recorrer", "Gestión de datos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtDistancia.Focus();
                 return;
             }
 
-
-
-        //calcular ida y vuelta 
-        totalDistancia = distancia * 2;
-
-            //Calcular precio sin descuento
-            total = totalDistancia * precioKm;
-
-            //Aplicar descuento si corresponde 
-            if (distancia >= 100 && distancia >= 7)
-
+            if (!double.TryParse(txtDistancia.Text, out double distancia))
             {
-                total = total * 0.5; // Descuento del 5%
+                MessageBox.Show("La distancia debe ser un número válido", "Gestión de datos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtDistancia.Focus();
+                return;
             }
-            //Mostrar resultado
-            MessageBox.Show("El precio total del boleto es: $" + total);
+
+            int dias = (int)numDias.Value;
+            double precioKm = 5;
+
+            // Calcular ida y vuelta
+            double totalDistancia = distancia * 2;
+
+            // Calcular precio sin descuento
+            double total = totalDistancia * precioKm;
+
+            // Aplicar descuento si corresponde (50% cuando distancia >= 100 y estadía >= 7 días)
+            if (distancia >= 100 && dias >= 7)
+            {
+                total *= 0.5; // Descuento del 50%
+            }
+
+            // Mostrar resultado
+            MessageBox.Show($"El precio total del boleto es: ${total:F2}", "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
             pMostrar.Visible = true;
-            //Agregar a la datagridview
+
+            // Agregar a la datagridview
             dgvDatos.Rows.Add(distancia, dias, total);
         }
 
